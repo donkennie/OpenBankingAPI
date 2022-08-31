@@ -12,6 +12,7 @@ namespace OpenBankingAPI.ApplicationDb
         }
 
         public DbSet<Account> Accounts { get; set; }
+
         public DbSet<Transaction> Transactions { get; set; }
 
     }
