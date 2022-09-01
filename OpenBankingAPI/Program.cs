@@ -1,11 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using OpenBankingAPI.ApplicationDb;
+using OpenBankingAPI.Services.Implementations;
+using OpenBankingAPI.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 builder.Services.AddDbContext<OpenBankingDbContext>(x =>
 {
