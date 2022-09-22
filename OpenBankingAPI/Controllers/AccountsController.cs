@@ -19,6 +19,8 @@ namespace OpenBankingAPI.Controllers
             _mapper = mapper;
             _userService = userService;
         }
+
+
         [HttpPost]
         [Route("register_new_account")]
         public IActionResult RegisterNewAccount([FromBody] RegisterNewAccountModel newAccount)

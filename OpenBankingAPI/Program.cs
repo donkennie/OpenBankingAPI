@@ -11,6 +11,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<IAccountService, AccountService>();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddDbContext<OpenBankingDbContext>(x =>
 {
     x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

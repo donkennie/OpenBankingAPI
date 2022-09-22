@@ -57,7 +57,7 @@ namespace OpenBankingAPI.Services.Implementations
             //validate
             if (string.IsNullOrWhiteSpace(Pin)) throw new ArgumentNullException("Pin cannot be empty");
             //does a user with this email exist already?
-            if (_openBankingDbContext.Accounts.Any(x => x.Email == account.Email)) throw new ApplicationException("A userr with thiss email exists");
+            if (_openBankingDbContext.Accounts.Any(x => x.Email == account.Email)) throw new ApplicationException("A user with thiss email exists");
             //is pin eequal to confirmmpin
             if (!Pin.Equals(ConfirmPin)) throw new ApplicationException("Pins do not match.");
 
