@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using OpenBankingAPI.ApplicationDb;
 using OpenBankingAPI.Services.Implementations;
 using OpenBankingAPI.Services.Interfaces;
+using OpenBankingAPI.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,9 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IAccountService, AccountService>(); 
+
+builder.Services.AddScoped<ITransactionService, TransactionService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 builder.Services.AddDbContext<OpenBankingDbContext>(x =>
 {
